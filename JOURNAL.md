@@ -7,13 +7,6 @@ description: "A 7" PDA powered by a MC68010 and electronic shenanigans. It featu
 created_at: "2026-11-06"
 ---
 
-## 06/11/2026-14:20 - Start
-
-Hi! this is the starting commit of my journal. I'm currently on the move and will start uploading some code I had developed in the past days.
-![on the move](docs/images/IMG_20261106_142537.jpg)
-
-**Total time spent: 0 minutes**
-
 
 ## 06/11/2026-17:49 - New Development
 
