@@ -15,11 +15,27 @@ On top of this system runs the custom OS tailored for this device, m68K_OS, mode
 - 128kB of EPROM
 - 32kB of SRAM
 - 2MB - 12MB of DRAM 30-pin SIMM
-- Custom DRAM controller
+- custom DRAM controller
 - 2GB CompactFlash card/ IDE/ATA interface
 - Z8530 Serial Communication Controller
 - ESP32 WIFI modem (running ZImodem software) @ 32400 baud
-- Beep speaker
-- Battery based on 18650 cells and respective cell controller and USB-C charging
+- SSD1963-based 7" 800x480 RGB565 65K colours display with XPT2046-based resistive touch support
+- beep speaker
+- battery based on 18650 cells and respective cell controller and USB-C charging
 - hardware timer sending interrupts every 100ms
 - Real Time Clock!
+
+## Software details
+
+### Firmware
+- interactive FORTH shell utilising the f68kans implementation, with some custom words and functions baked in
+- MBR/FAT32 support
+- bootloader loading the first sector onto RAM and then booting off of it
+- division between Supervisor and User mode for running BIOS, OS kernel and user programs
+
+### m68K_OS
+- almost POSIX-Compliant kernel (true compat is not achievable due to no MMU support)
+- lwIP TCP/IP network stack
+- syscalls and exceptions through TRAPs
+- newlibc as libc implementation
+- GUI powered by Nano-X
