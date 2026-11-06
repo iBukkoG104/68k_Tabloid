@@ -21,3 +21,11 @@ Today I've worked on a few READMEs, most notably the one in /bootloader, where I
 ![dev](/docs/images/journal/06-11-26.png)
 
 **Total time spent: 1 hour 30 minutes**
+
+
+## 06/11/2026-23:59 - ssd1963_lo_drv.s almost done
+
+Today I also spent a lot of braincells on trying to terminate my low level driver in a single day, but apparently I wasn't able to :( I added a lot of subroutines that could be useful to write to, debug and manage the display. Tomorrow I hope to reserve a bit of time to finally finish this driver and move on toward the next driver.
+![dev](docs/images/journal/06-11-26.png)
+
+**Total time spent: 2 hour 42 minutes**
