@@ -1,0 +1,813 @@
+ROM   000000-01FFFF  (740 byte caricati)
+SRAM  020000-027FFF
+DRAM  200000-5FFFFF  (4 MB installati, finestra fino a DFFFFF)
+SCC   E00000-E0000F  [placeholder]
+Timer disabilitato
+
+020100  dc.w    $a16d; opcode 1010
+340000  move.l  (-$53,A3,A3.l*4), (A7)
+000000  dc.w $7f45; ILLEGAL
+010004  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x000003 (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x00100F (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x00100F (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x00100F (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x00100F (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x00100F (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x00100F (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x00100F (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x00100F (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+[warn] scrittura su ROM @ 0x000000 (ignorata) PC=0x000028
+00002E  ori.b   #$6, ($3,A0)
+[warn] scrittura su ROM @ 0x00100F (ignorata) PC=0x00002E
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+00002E  ori.b   #$6, ($3,A0)
+000034  ori.b   #$0, D2
+000038  ori.b   #$0, D0
+00003C  lea     $100c.w, A0
+000040  jsr     $1020.w
+001020  dc.w    $ffff; opcode 1111
+000028  ori.b   #$0, (A4,D0.w)
+
+[fine] 9962 cicli (0.001 s emulati)
+PC=00002E SR=2700  USP=00000000 ISP=7F4546EC VBR=00000000
+D0=00000000 D1=00000000 D2=00000000 D3=00000000 D4=00000000 D5=00000000 D6=00000000 D7=00000000 
+A0=0000100C A1=00000000 A2=00000000 A3=00000000 A4=00000000 A5=00000000 A6=00000000 A7=7F4546EC 

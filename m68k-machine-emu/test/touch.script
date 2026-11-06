@@ -1,0 +1,22 @@
+# Script di esempio: tocchi finti a tempo per provare il touch senza finestra.
+#   ./m68k-harness test/touch.bin -n -f --touch-script test/touch.script -S out.ppm
+# I primi 400 ms di tempo emulato se ne vanno nell'init e nel riempimento
+# dello schermo (384000 pixel a ~10 cicli l'uno su un 68010 a 10 MHz).
+#
+# ms    azione  x    y
+500     down    100  100
+550     move    200  150
+600     move    300  200
+650     move    400  250
+700     move    500  300
+750     move    600  350
+800     move    700  400
+850     up
+1000    down    150  440
+1050    move    650  440
+1100    up
+2000    down    400  20      # barra grigia in alto: pulisce la tela
+2050    up
+2500    down    200  120
+2560    move    600  360
+2600    up

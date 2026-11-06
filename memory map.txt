@@ -1,0 +1,141 @@
+
+
+MEMORY MAP
+
+ _______________________  $ffffff
+|                       |
+|                       |
+|                       |
+|                       |
+|                       |
+|    MMIO Perhiperals   |
+|        + EXTRA        |
+|                       |
+|                       |
+|                       |
+|                       |
+|-----------------------| $e00000
+|-----------------------| $dfffff
+|                       |
+|                       |
+|                       |
+|                       |
+|                       |
+|                       |
+|                       |
+|       12MB DRAM       |
+|                       |
+|                       |
+|                       |
+|                       |
+|                       |
+|                       |
+|                       |
+|                       |
+|-----------------------| $200000
+|-----------------------| $1fffff
+|                       |
+|                       |
+|                       |
+|         EXTRA         |
+|                       |
+|                       |
+|                       |
+|-----------------------| $028000
+|-----------------------| $027fff
+|                       |
+|       32KB SRAM       |
+|                       |
+|-----------------------| $020000
+|-----------------------| $01ffff
+|                       |
+|      128KB EPROM      |
+|                       |
+|_______________________| $000000
+
+
+
+MMIO devices map
+
+
+ _______________________  $ffffff
+|                       |
+|                       |
+|                       |
+|        <EMPTY>        |
+|                       |
+|                       |
+|-----------------------|
+|                       |
+|   XPT2046 SPI touch   | %111xxxxx xxx00011 xxxxxxx1
+|                       | $e00301
+|-----------------------|
+|                       |                             _
+|    SSD1963 Display    | %111xxxxx xxx00010 xxxxxx[D/c]1
+|                       | $e00201 - $e00203
+|-----------------------|
+|                       |                        ___
+|       IDE drive       | %111xxxxx xxx00001 xxx[CS0][A2][A1][A0]1
+|                       | $e00101 - $e0010f
+|-----------------------|
+|                       |                            _    _
+|       Z8530 SCC       | %111xxxxx xxx00000 xxxxx[A/b][D/c]1
+|_______________________| $e00001 - $e00007
+
+
+; Z8530 SCC: select the Z8530 Serial Comunication Controller, with port A used
+;                   as UART / generic RS232 port and port B connected to the ESP32
+;                   ZImodem; 2 parameters:
+;                        _
+;                   - [A/b]: select A (active HIGH) or B (active LOW) port;
+;                        _
+;                   - [D/c]: select Data transfer (active HIGH) or issues a
+;                               Command (active LOW);
+;
+;                   xxxxx001: select SCC port B; control mode
+;                   xxxxx011: select SCC port B; data mode
+;                   xxxxx101: select SCC port A; control mode
+;                   xxxxx111: select SCC port A; data mode
+;
+; IDE Fixed Drive: select the main ATA/IDE drive used as fixed disk where m68K_OS
+;                   and other saved data resides. The IDE disk is configured in
+;                   16-bit mode, true IDE, LBA mode; 4 parameters:
+;
+;                      ___
+;                   - [CS0]: chip select for task file registers;
+;
+;                   - [A2...A0]: address lines;
+;
+;                   xxxx0001: RD/WR Data Registers
+;                   xxxx0011: Error Register/Features Register
+;                   xxxx0101: Sector Count
+;                   xxxx0111: Sector Number / LBA Bits 0–7
+;                   xxxx1001: Cylinder Low / LBA Bits 8–15
+;                   xxxx1011: Cylinder High / LBA Bits 16–23
+;                   xxxx1101: Drive/Head / LBA Bits 24–27
+;                   xxxx1111: Status Register (RD) / Command Register (W)
+;
+;
+;
+; SSD1963 Display: select the 7" 800x480 display using the RGB565-65k color format;
+;                   1 parameter:
+;                        _
+;                   - [D/c]: Data select (active HIGH) or Command select
+;                               (active LOW)
+;
+;                   xxxxxx01: Command select
+;                   xxxxxx11: Data select
+;
+; XPT2046 SPI touch: select the resistive touch controller for reading the position
+;                   of the interaction; no parameters
+;
+;
+;
+
+
+
+
+
+
+
+
