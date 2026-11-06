@@ -5,6 +5,7 @@ title: "68k_Tabloid"
 author: "Alexandra"
 description: "A 7" PDA powered by a MC68010 and electronic shenanigans. It features a custom POSIX-compliant OS, m68k_OS written specifically for this machine"
 created_at: "2026-11-06"
+time: "1h 30m"
 ---
 
 
