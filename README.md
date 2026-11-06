@@ -10,3 +10,16 @@ The software that powers this contraption is a FORTH-based interactive shell, li
 On top of this system runs the custom OS tailored for this device, m68K_OS, modelled on a subspecification of POSIX (because no MMU, so no `fork()` :P ), featuring the lwIP TCP/IP stack and other components useful for OS stuff.
 
 ## Hardware details
+
+- MC68010P10 @ 10MHz
+- 128kB of EPROM
+- 32kB of SRAM
+- 2MB - 12MB of DRAM 30-pin SIMM
+- Custom DRAM controller
+- 2GB CompactFlash card/ IDE/ATA interface
+- Z8530 Serial Communication Controller
+- ESP32 WIFI modem (running ZImodem software) @ 32400 baud
+- Beep speaker
+- Battery based on 18650 cells and respective cell controller and USB-C charging
+- hardware timer sending interrupts every 100ms
+- Real Time Clock!
