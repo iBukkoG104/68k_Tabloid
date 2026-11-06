@@ -1,10 +1,10 @@
 # AI WARNING! AI WARNING! AI WARNING! AI WARNING!
 
-## to speed up software and OS development, this harness was developed with Claude Code.
+### to speed up software and OS development, this harness was developed with Claude Code.
 
 # m68k-machine-emu
 
-## ## what's this?
+## what's this?
 
 This is a Musashi harness written in C to emulate a Motorola 68k CPU and it's
 used as the core of the emulator of my machine.
