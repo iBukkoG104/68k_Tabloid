@@ -24,7 +24,7 @@ Today I also spent a lot of braincells on trying to terminate my low level drive
 **Total time spent: 2 hour 42 minutes**
 
 
-## 07/11/2026-23:59 - bugfixes!
+## 07/11/2026 - bugfixes!
 
 I was reviewing the code I wrote yesterday (well, actually Claude review it) and found some criticalities:
  - I missed every '#' in front of every driver command, that was easy to fix
