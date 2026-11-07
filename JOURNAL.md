@@ -38,4 +38,4 @@ After a bit of work I fixed all bugs and the control labels, driver commands and
 Oh! I forgot to mentikon that I also had to rethink the MMIO for the display, since the SSD1963 requires a hardware reset signal during init.
 ![dev](docs/images/journal/07-11-26.png)
 
-**Total time spent: 1 hour 42 minutes**
+**Total time spent: 1 hour 45 minutes**
