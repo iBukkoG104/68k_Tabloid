@@ -69,12 +69,13 @@ WR_MEM_CONTINUE	equ	$3c ; transfer image info from CPU to SSD1963 from last writ
 RD_DDB			equ $A1	; read the DDB from provided location
 SET_LCD_MODE	equ $b0 ; set LCD panel mode and resolution
 
+;;;TODO;;;TODO;;;TODO;;;TODO
 SET_HORI_PER	equ $b4 ; set front porch
 SET_VERT_PER	equ $b6	; set vertical blanking interval
 SET_PLL			equ $e0	; start the PLL
 SET_PLL_MN		equ $e2	; set the PLL
 SET_LSH_FREQ	equ $e6	; set the pixel clock frequency
-
+;;;TODO;;;TODO;;;TODO;;;TODO
 
 SET_PXL_DATA_IF	equ	$f0	; set pixel data format of parallel host CPU interface
 
