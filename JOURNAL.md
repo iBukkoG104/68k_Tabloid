@@ -22,3 +22,18 @@ Today I also spent a lot of braincells on trying to terminate my low level drive
 ![dev](docs/images/journal/06-11-26.png)
 
 **Total time spent: 2 hour 42 minutes**
+
+
+## 07/11/2026-23:59 - bugfixes!
+
+I was reviewing the code I wrote yesterday (well, actually Claude review it) and found some criticalities:
+ - I missed every '#' in front of every driver command, that was easy to fix
+ - `__write_memory_start` and `__set_partial_area` sent the wrong commands to the display (copy-paste shenanigans)
+ - `__set_scroll_area` was dirtying d3 without clearing it first, a `clr.l d3` should do the job
+ - there were a few  `rol.b #8` where they should've been `rol.w #8`
+ - comments commenting the wrong things
+
+After a bit of work I fixed all bugs and the control labels, driver commands and subroutines section are (almost) done. Now I have to implement `__set_hori_period`, `__set_vert_period`, `__set_pll`, `__set_pll_mn` and `__set_lshift_freq` before start implementing macros callable from the floor above (high level driver) and below (firmware).
+![dev](docs/images/journal/07-11-26.png)
+
+**Total time spent: 1 hour 42 minutes**
