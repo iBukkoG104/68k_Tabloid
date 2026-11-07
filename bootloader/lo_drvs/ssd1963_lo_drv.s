@@ -39,8 +39,9 @@
 ;;  control labels
 ;
 
-__ssd_cmd       equ     $e00201 ; send commands to display controller
-__ssd_data      equ     $e00203 ; send data to display controller
+__ssd_reset		equ		$e00201 ; send hardware reset signal
+__ssd_cmd       equ     $e00205 ; send commands to display controller
+__ssd_data      equ     $e00207 ; send data to display controller
 
 
 ;
@@ -67,23 +68,33 @@ SET_SCRL_START	equ $37	; define vertical scrolling start point
 WR_MEM_CONTINUE	equ	$3c ; transfer image info from CPU to SSD1963 from last written location
 RD_DDB			equ $A1	; read the DDB from provided location
 SET_LCD_MODE	equ $b0 ; set LCD panel mode and resolution
+
+SET_HORI_PER	equ $b4 ; set front porch
+SET_VERT_PER	equ $b6	; set vertical blanking interval
+SET_PLL			equ $e0	; start the PLL
+SET_PLL_MN		equ $e2	; set the PLL
+SET_LSH_FREQ	equ $e6	; set the pixel clock frequency
+
+
 SET_PXL_DATA_IF	equ	$f0	; set pixel data format of parallel host CPU interface
 
 ;
 ;;  subroutines
 ;
 
-await_5ms
+await_5ms		;;awaits for ~5ms
+	move.l d7,-(sp)		; save d7 contents
 	move.l #4166,d7
 await_loop
 	dbra d7,await_loop
+	move.l (sp)+,d7		; restore d7 contents
 	rts
 
 
 
 
 __soft_reset		; 0 parameters
-	move.b SOFT_RST,__ssd_cmd
+	move.b #SOFT_RST,__ssd_cmd
 	bsr await_5ms
 	rts
 
@@ -100,51 +111,51 @@ __get_display_mode	; 1 parameter
 	; 				011 = gamma curve 3
 	; returns to d0
 	;
-	move.b GET_DISP_MODE,__ssd_cmd
+	move.b #GET_DISP_MODE,__ssd_cmd
 	clr.l d0					; clear d0
 	move.b __ssd_data,d0		; get parameter
 	rts
 
 
 __sleep_mode_on		; 0 parameters
-	move.b SLEEP_MODE_ON,__ssd_cmd
+	move.b #SLEEP_MODE_ON,__ssd_cmd
 	bsr await_5ms
 	rts
 
 
 __sleep_mode_off	; 0 parameters
-	move.b SLEEP_MODE_OFF,__ssd_cmd
+	move.b #SLEEP_MODE_OFF,__ssd_cmd
 	bsr await_5ms
 	rts
 
 
 __enter_partial_mode; no parameters
-	move.b PARTIAL_MODE,__ssd_cmd
+	move.b #PARTIAL_MODE,__ssd_cmd
 	rts
 
 
 __enter_normal_mode; no parameters
-	move.b NORMAL_MODE,__ssd_cmd
+	move.b #NORMAL_MODE,__ssd_cmd
 	rts
 
 
 __exit_invert_mode; no parameters
-	move.b NO_INV_MODE,__ssd_cmd
+	move.b #NO_INV_MODE,__ssd_cmd
 	rts
 
 
 __enter_invert_mode; no parameters
-	move.b GO_INV_MODE,__ssd_cmd
+	move.b #GO_INV_MODE,__ssd_cmd
 	rts
 
 
 __set_display_off	;no parameters
-	move.b DISP_OFF,__ssd_cmd
+	move.b #DISP_OFF,__ssd_cmd
 	rts
 
 
 __set_display_on	;no parameters
-	move.b DISP_ON,__ssd_cmd
+	move.b #DISP_ON,__ssd_cmd
 	rts
 
 
@@ -160,7 +171,7 @@ __set_column_address	;4 parameters
 	; ec7..0  : End column number low byte
 	;
 	;
-	move.b SET_COL_ADDR,__ssd_cmd
+	move.b #SET_COL_ADDR,__ssd_cmd
 	; transfer start column high byte
 	rol.w #8,d0		;prepare high byte
 	move.b d0,__ssd_data
@@ -178,53 +189,55 @@ __set_column_address	;4 parameters
 
 
 __set_page_address	;4 parameters
-	; sc15 - sc8 -- d0 low word high byte
-	; sc7  - sc0 -- d0 low word low byte
-	; ec15 - ec8 -- d1 low word high byte
-	; ec7  - ec0 -- d1 low word low byte
+	; sp15 - sp8 -- d0 low word high byte
+	; sp7  - sp0 -- d0 low word low byte
+	; ep15 - ep8 -- d1 low word high byte
+	; ep7  - ep0 -- d1 low word low byte
 	;
-	; sc15..8 : Start column number high byte
-	; sc7..0  : Start column number low byte
-	; ec15..8 : End column number high byte
-	; ec7..0  : End column number low byte
+	; sp15..8 : Start page (row) number high byte
+	; sp7..0  : Start page (row)  number low byte
+	; ep15..8 : End page (row) number high byte
+	; ep7..0  : End page (row)  number low byte
 	;
 	;
-	move.b SET_PAGE_ADDR,__ssd_cmd
-	; transfer start column high byte
+	move.b #SET_PAGE_ADDR,__ssd_cmd
+	; transfer start page high byte
 	rol.w #8,d0		;prepare high byte
 	move.b d0,__ssd_data
-	; transfer start column low byte
+	; transfer start page low byte
 	rol.w #8,d0		;prepare low byte
 	move.b d0,__ssd_data
 
-	; transfer end column high byte
+	; transfer end page high byte
 	rol.w #8,d1		;prepare high byte
 	move.b d1,__ssd_data
-	; transfer end column low byte
+	; transfer end page low byte
 	rol.w #8,d1		;prepare low byte
 	move.b d1,__ssd_data
 	rts
 
 
 __write_memory_start	;no parameters
-	move.b NORMAL_MODE,__ssd_cmd
+	move.b #WR_MEM_START,__ssd_cmd
 	rts
 
 
 __set_partial_area	;4 parameters
-	; sc15 - sc8 -- d0 low word high byte
-	; sc7  - sc0 -- d0 low word low byte
-	; ec15 - ec8 -- d1 low word high byte
-	; ec7  - ec0 -- d1 low word low byte
+	; sr15 - sr8 -- d0 low word high byte
+	; sr7  - sr0 -- d0 low word low byte
+	; er15 - er8 -- d1 low word high byte
+	; er7  - er0 -- d1 low word low byte
 	;
-	; sc15..8 : Start column number high byte
-	; sc7..0  : Start column number low byte
-	; ec15..8 : End column number high byte
-	; ec7..0  : End column number low byte
+	; sr15..8 : Start display row number high byte
+	; sr7..0  : Start display row number low byte
+	; er15..8 : End display row number high byte
+	; er7..0  : End display row number low byte
 	;
 	; SR and ER cannot be 0000h nor exceed last vertical line number (479)
 	; error reported in d0(SR) or d1(ER)
 
+
+	;;WARNING CHECK == 0 NOT IMPLEMENTED YET, NEED HW TESTING
 	;check if SR < 480
 	cmp.w #479,d0				; is d0 less than 480?
 	bhi .partial_area_abrt_SR	; if higher, quit with error on d0
@@ -235,7 +248,7 @@ __set_partial_area	;4 parameters
 								; else, continue
 
 
-	move.b DISP_OFF,__ssd_cmd
+	move.b #SET_PART_AREA,__ssd_cmd
 
 	; transfer start column high byte
 	rol.w #8,d0		;prepare high byte
@@ -279,16 +292,26 @@ __set_scroll_area	;6 parameters
 	;
 	;
 	; TFA + VSA + BFA = display panel’s horizontal lines (480)
-	; error reported in d0
+	; error reported in d0 - d2
 
+	;check if dx <= 480
+	cmp.w #480,d0	; is tfa <= 480?
+	bhi .scroll_area_abrt_d0;if no abort
+	cmp.w #480,d1	; is vsa <= 480?
+	bhi .scroll_area_abrt_d1;if no abort
+	cmp.w #480,d2	; is bfa <= 480?
+	bhi .scroll_area_abrt_d2;if no abort
+
+	; final check
+	clr.l d3		; init d3
 	add.w d0,d3		; add tfa into d3
 	add.w d1,d3		; add vsa into d3
 	add.w d2,d3		; add bfa into d3
 	cmp.w #480,d3	; is tfa + vsa + bfa = 480?
-	bne .scroll_area_abrt	; if != 480, abort
+	bne .scroll_area_abrt_d0; if != 480, abort
 							; else continue
 
-	move.b SET_SCRL_AREA,__ssd_cmd
+	move.b #SET_SCRL_AREA,__ssd_cmd
 
 	; transfer tfa high byte
 	rol.w #8,d0		;prepare high byte
@@ -311,10 +334,20 @@ __set_scroll_area	;6 parameters
 	rol.w #8,d2		;prepare low byte
 	move.b d2,__ssd_data
 	rts
-.scroll_area_abrt
+.scroll_area_abrt_d0
 	clr.l d0		; flush d0
 	move.l #$deadbeef,d0	;load errorcode
 	rts
+.scroll_area_abrt_d1
+	clr.l d1		; flush d1
+	move.l #$deadbeef,d1	;load errorcode
+	rts
+.scroll_area_abrt_d2
+	clr.l d2		; flush d2
+	move.l #$deadbeef,d2	;load errorcode
+	rts
+
+
 
 
 __set_address_mode	;1 parameter
@@ -324,14 +357,13 @@ __set_address_mode	;1 parameter
 ; A6: Column address order | 0 = left to right     1 = right to left
 ; A5: Page/cols order	   | 0 = normal            1 = reverse
 ; A4: Line address order   | 0 = refresh from top  1 = refresh from bottom
-; A3: RGB / BRG order	   | 0 = RGB 			   1 = BRG
+; A3: RGB / BGR order	   | 0 = RGB 			   1 = BGR
 ; A2: Dsp data latch data  | 0 = rfsh left > right 1 = rfsh right > left
 ; A1: Flip horizontal	   | 0 = normal			   1 = flipped
 ; A0: Flip vertical		   | 0 = normal			   1 = flipped
 ;
 
-	move.b SET_ADDR_MODE,__ssd_cmd
-
+	move.b #SET_ADDR_MODE,__ssd_cmd
 	; send settings
 	move.b d0,__ssd_data
 	rts
@@ -344,7 +376,7 @@ __set_scroll_start	;2 parameters
 ; vsp15..8: framebuffer scrolling area high byte
 ; vsp7..0:  framebuffer scrolling area low byte
 ;
-	move.b SET_SCRL_START,__ssd_cmd
+	move.b #SET_SCRL_START,__ssd_cmd
 
 	; transfer vsp high byte
 	rol.w #8,d0		;prepare high byte
@@ -355,7 +387,7 @@ __set_scroll_start	;2 parameters
 	rts
 
 __write_memory_continue	;no parameters
-	move.b WR_MEM_CONTINUE,__ssd_cmd
+	move.b #WR_MEM_CONTINUE,__ssd_cmd
 	rts
 
 
@@ -377,16 +409,17 @@ __read_ddb		;5 parameters
 ; exit code should ALWAYS be $ff
 ; put error code on d0
 ;
-	move.b RD_DDB,__ssd_cmd
-
+	move.b #RD_DDB,__ssd_cmd
+	clr.l d0
+	clr.l d1
 	; get SSL into d0
 	move.b __ssd_data,d0	; get high byte
-	rol.b #8,d0				; put it into the correct spot
+	rol.w #8,d0				; put it into the correct spot
 	move.b __ssd_data,d0	; get low byte
 
 	; get PROD byte into d1 high byte
 	move.b __ssd_data,d1	; get PROD
-	rol.b #8,d1				; put it into the high byte
+	rol.w #8,d1				; put it into the high byte
 	;get REV byte into d1 low byte
 	move.b __ssd_data,d1	; get REV
 
@@ -405,32 +438,86 @@ __read_ddb		;5 parameters
 
 __set_lcd_mode		;7 parameters
 ; A5 - A0      -- d0 high byte
-; B6 - B0      -- d0 low byte
+; B6 - B5      -- d0 low byte
 ; hdp10 - hdp8 -- d1 high byte
 ; hdp7  - hdp0 -- d1 low byte
-; vdp10 - vdp8 -- d1 high byte
-; vdp7  - vdp0 -- d1 low byte
-;
-; A5: TFT panel data width    | 0 = 18-bit       1 = 24-bit
-; A4: TFT color depth enh. en | 0 = disable FRC  1 = enable FRC enh.
-; A3:
+; vdp10 - vdp8 -- d2 high byte
+; vdp7  - vdp0 -- d2 low byte
+; g5    - g0   -- d3 low byte
 ;
 ;
+; A5: TFT panel data width    | 0 = 18-bit             1 = 24-bit
+; A4: TFT color depth enh. en | 0 = disable FRC enh.   1 = enable FRC enh.
+; A3: TFT FRC enable		  | 0 = disable			   1 = enable
+; A2: LSHIFT polarity		  | 0 = latch falling edg  1 = latch rising edg
+; A1: LLINE polarity		  | 0 = active LOW		   1 = active HIGH
+; A0: LFRAME polarity		  | 0 = active LOW		   1 = active HIGH
 ;
+; B6..5: TFT type
+;				00,01 = TFT mode
+;				10	  = Serial RGB mode
+;				11 	  = Serial RGB+dummy mode
 ;
+; hdp10..8: horizontal panel size high byte
+; hdp7..0:  horizontal panel size low byte
+; vdp10..8: vertical panel size high byte
+; vdp7..0:  vertical panel size low byte
 ;
+; g5..3: RGB sequence even line for serial TFT interface
+; 							000 = RGB
+; 							001 = RBG
+; 							010 = GRB
+; 							011 = GBR
+; 							100 = BRG
+; 							101 = BGR
+; g2..0: RGB sequence odd line for serial TFT interface
+; 							000 = RGB
+; 							001 = RBG
+; 							010 = GRB
+; 							011 = GBR
+; 							100 = BRG
+; 							101 = BGR
 ;
-;
-;
-;
+	move.b #SET_LCD_MODE,__ssd_cmd
+	; send A5..0 and B6,5
+	rol.w #8,d0		; select top byte
+	move.b d0,__ssd_data
+	rol.w #8,d0		; select bottom byte
+	move.b d0,__ssd_data
+
+	; send hdp10..8 and 7..0
+	rol.w #8,d1		; select top byte
+	move.b d1,__ssd_data
+	rol.w #8,d1		; select bottom byte
+	move.b d1,__ssd_data
+
+	; send vdp10..8 and 7..0
+	rol.w #8,d2		; select top byte
+	move.b d2,__ssd_data
+	rol.w #8,d2		; select bottom byte
+	move.b d2,__ssd_data
+
+	; send g5..0
+	move.b d3,__ssd_data
+	rts
 
 
+__set_pixel_data_interface	;1 parameter
+; a2 - a0	-- d0
+;
+; a2..0: pixel data interface format
+; 				000:  8-bit
+; 				001:  12-bit
+; 				010:  16-bit packed
+; 				011:  16-bit RGB565
+; 				100:  18-bit
+; 				101:  24-bit
+; 				110:  9-bit
+;
 
-
-
-
-__set_pixel_data_interface
-
+	move.b #SET_PXL_DATA_IF,__ssd_cmd
+	move.b d0,__ssd_data
+	rts
 
 
 
