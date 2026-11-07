@@ -34,6 +34,8 @@ I was reviewing the code I wrote yesterday (well, actually Claude review it) and
  - comments commenting the wrong things
 
 After a bit of work I fixed all bugs and the control labels, driver commands and subroutines section are (almost) done. Now I have to implement `__set_hori_period`, `__set_vert_period`, `__set_pll`, `__set_pll_mn` and `__set_lshift_freq` before start implementing macros callable from the floor above (high level driver) and below (firmware).
+
+Oh! I forgot to mentikon that I also had to rethink the MMIO for the display, since the SSD1963 requires a hardware reset signal during init.
 ![dev](docs/images/journal/07-11-26.png)
 
 **Total time spent: 1 hour 42 minutes**
