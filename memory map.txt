@@ -70,8 +70,8 @@ MMIO devices map
 |   XPT2046 SPI touch   | %111xxxxx xxx00011 xxxxxxx1
 |                       | $e00301
 |-----------------------|
-|                       |                             _
-|    SSD1963 Display    | %111xxxxx xxx00010 xxxxxx[D/c]1
+|                       |                          ______    _
+|    SSD1963 Display    | %111xxxxx xxx00010 xxxxx[HW_RST][D/c]1
 |                       | $e00201 - $e00203
 |-----------------------|
 |                       |                        ___
@@ -118,13 +118,16 @@ MMIO devices map
 ;
 ;
 ; SSD1963 Display: select the 7" 800x480 display using the RGB565-65k color format;
-;                   1 parameter:
+;                   2 parameter:
+;                      ______
+;                   - [HW_RST]: hardware /RESET signal, active LOW
 ;                        _
 ;                   - [D/c]: Data select (active HIGH) or Command select
 ;                               (active LOW)
 ;
-;                   xxxxxx01: Command select
-;                   xxxxxx11: Data select
+;                   xxxxx001: Reset
+;                   xxxxx101: Command select
+;                   xxxxx111: Data select
 ;
 ; XPT2046 SPI touch: select the resistive touch controller for reading the position
 ;                   of the interaction; no parameters
