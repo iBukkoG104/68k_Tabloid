@@ -52,3 +52,7 @@ I also tested 2 GAL28V8 to see if they were good. I extracted them from 2 custom
 
 **Total time spent: 2 hour 15 minutes**
 
+I also spent some time tinkering around with my 68010 CPU and managed to get a stable freerun circuit in a breadoard, I can now try to do something more elaborate with it and designing my system (on breadoards for now).
+![MC68010 freerun](docs/images/journal/08-11-26_2.jpg)
+
+**Total time spent: 0 hour 35 minutes**
