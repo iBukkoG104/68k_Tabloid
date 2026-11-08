@@ -1,6 +1,8 @@
 # 68k_Tabloid
 A 7" PDA powered by a MC68010 and electronic shenanigans. It features a custom POSIX-compliant OS, m68k_OS written specifically for this machine
 
+![design idea](docs/hardware/1793978704004.jpg)
+
 ## What is this all about?
 This is a personal project I started to learn more about how systems and computers work by designing, refining, and building my own computer system, and OSDEV by making my own custom Operating System.
 
