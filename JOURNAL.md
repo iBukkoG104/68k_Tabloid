@@ -48,7 +48,7 @@ Today I decided to dedicate myself on the hardware aspect of the project by sold
 I fired up my sooldering iron and I began soldering the headers to the breakout boards and after an hour they were all finished and I began testing them. I wrired them up to 5v on one side to see if they were converting the 5v to 3v3 and vice versa, and all the boards seems to work fine for now...
 
 I also tested 2 GAL28V8 to see if they were good. I extracted them from 2 custom-made communication cards I found at my school while they were dismantling an old warehouse filled with old stuff, I also extracted 2 Z8530 SCC from them. Anyways, I found a new program called [GalForge](https://github.com/sillycowvalley/GalForge) on github which allows to program these PALs/GALs without using WinCUPL which is VERY convenient. I loaded the example program (a 2 to 4 decoder) and it turns out that only one of the two gal20v8 is working. I might need to find more programmable arrays logic or buy a CPLD.
-![gal testing](docs/images/journal/08-11-26_1.png)
+![gal testing](docs/images/journal/08-11-26_1.jpg)
 
-**Total time spent: 2 hour 10 minutes**
+**Total time spent: 2 hour 15 minutes**
 
