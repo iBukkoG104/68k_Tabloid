@@ -48,12 +48,7 @@ I fired up my sooldering iron and I began soldering the headers to the breakout 
 I also tested 2 GAL28V8 to see if they were good. I extracted them from 2 custom-made communication cards I found at my school while they were dismantling an old warehouse filled with old stuff, I also extracted 2 Z8530 SCC from them. Anyways, I found a new program called [GalForge](https://github.com/sillycowvalley/GalForge) on github which allows to program these PALs/GALs without using WinCUPL which is VERY convenient. I loaded the example program (a 2 to 4 decoder) and it turns out that only one of the two gal20v8 is working. I might need to find more programmable arrays logic or buy a CPLD.
 ![gal testing](docs/images/journal/08-11-26_1.jpg)
 
-**Time spent: 2 hour 15 minutes**
-
-
-# 08/11/2026 - hardware testing pt.2
-
 I also spent some time tinkering around with my 68010 CPU and managed to get a stable freerun circuit in a breadoard, I can now try to do something more elaborate with it and designing my system (on breadoards for now).
 ![MC68010 freerun](docs/images/journal/08-11-26_2.jpg)
 
-**Total time spent: 2 hour 50 minutes**
+**Total time spent: 5 hour 05 minutes**
