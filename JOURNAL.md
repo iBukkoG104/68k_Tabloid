@@ -65,6 +65,6 @@ in the last days I've spent some time thinking about doing some prototyping of t
 After that I began thinking of a simple example I could implement in this test run. I used an arduino to control a piezo buzzer and played a note depending from its inputs. I used a TMS27C512 and a temporary AM27C256 (which is partly broken, but works great for my testing) and it was beautiful: due to RF interference from nearby connections, the buzzer started humming weaker or stronger depending on the distance of my hand from the cables. I have a video in the `docs/` folder
 
 Assesting that the processor works, I can continue writing code.
-![MC buzzer](docs/images/journal/11-11-26_2.jpg)
+![MC buzzer](docs/images/journal/11-11-26.jpg)
 
 **Total time spent: 8 hour 35 minutes**
