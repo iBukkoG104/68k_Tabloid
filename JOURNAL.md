@@ -1,5 +1,3 @@
-# JOURNAL.md
-
 ---
 title: "68k_Tabloid"
 author: "Alexandra"
