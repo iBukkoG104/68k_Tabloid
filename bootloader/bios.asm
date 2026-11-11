@@ -26,7 +26,7 @@
     dc.l Start
 
 ;; LOADING THE DEVICE DRIVERS
-
+    org $001000
 ;
 ;; goodies
 ;
@@ -75,7 +75,7 @@ __dspy_xpt_cs       equ     $e00301
 
 
 
-    org $001000
+
 Start:
 
 ;
@@ -104,13 +104,7 @@ Start:
 breakpoint
     lea text_breakpoint,a0
     jsr __scc_strout_a
-    stop #$dead
-
-
-
-
-
-
+    stop #$0000
 
 
 
@@ -119,13 +113,3 @@ breakpoint
 text_breakpoint
     dc.b CR,LF,'TUNG TUNG TUNG SAHUR!',CR,LF,$ff
 
-
-
-
-
-; functions and subroutines
-;
-;;;;;;;;;;;;;;;;;;;;;;;;
-;          SCC         ;
-;;;;;;;;;;;;;;;;;;;;;;;;
-    even
