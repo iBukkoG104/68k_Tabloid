@@ -1,0 +1,66 @@
+Name        GLUE68K;
+PartNo      U_GLUE;
+Date        09/11/2026;
+Revision    02;
+Designer    Alexandra;
+Company     none;
+Assembly    none;
+Location    Italy;
+Device      g20v8;
+
+/*  Glue logic for bring-up starting prototyping on breadboard
+
+    map
+    $000000 - $00ffff       EPROM   64KB    (A23..A21 = 000, A17 = 0, A16 = 0)
+    $010000 - $01ffff       THE  V O I D    (no /DTACK)
+    $020000 - $023fff       SRAM bank0      (A14 = 0)   (A17 = 1, A16 = 0, A15 = 0)
+    $024000 - $027fff       SRAM bank1      (A14 = 1)
+
+*/
+
+/* -------------- INPUTS -------------- */
+PIN 2   = !AS;      /*  /AS  -  address strobe                  */
+PIN 3   = !UDS;     /*  /UDS -  upper data strobe   (D15...D8)  */
+PIN 4   = !LDS;     /*  /LDS -  lower data strobe   (D7..D0)    */
+PIN 5   = RW;       /*  R/w  -  1 = read,   0 = write           */
+PIN 6   = A23;
+PIN 7   = A22;
+PIN 8   = A21;
+PIN 9   = A17;
+PIN 10  = A16;
+PIN 11  = A15;
+PIN 14  = A14;      /*  SRAM bank selection                     */
+
+
+/* -------------- OUTPUTS ------------- */
+PIN 22  = !ROMCE;   /* /CE of EPROM              */
+PIN 21  = !RD;      /* /OE for SRAMs             */
+PIN 20  = !DTACK;   /* /DTACK for CPU            */
+PIN 19  = !RAM0H;   /* /E1 SRAM BANK0, HIGH BYTE */
+PIN 18  = !RAM0L;   /* /E1 SRAM BANK0, LOW BYTE  */
+PIN 17  = !RAM1H;   /* /E1 SRAM BANK1, HIGH BYTE */
+PIN 16  = !RAM1L;   /* /E1 SRAM BANK1, LOW BYTE  */
+
+
+/* -------------- DECODE ------------- */
+LOWBLK  = !A23 & !A22 & !A21;           /* $000000-$1FFFFF */
+ROMSEL  = LOWBLK & !A17 & !A16;         /* $000000-$00FFFF */
+RAMSEL  = LOWBLK & A17 & !A16 & !A15;   /* $020000-$027FFF */
+
+
+/* -------------- EQUATES ------------- */
+ROMCE   = AS & ROMSEL;
+
+RAM0H   = AS & UDS & RAMSEL & !A14;
+RAM0L   = AS & LDS & RAMSEL & !A14;
+RAM1H   = AS & UDS & RAMSEL & A14;
+RAM1L   = AS & LDS & RAMSEL & A14;
+
+RD      = AS & RW;
+DTACK   = AS & (ROMSEL # RAMSEL);
+
+
+
+
+
+
