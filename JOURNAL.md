@@ -67,4 +67,6 @@ Assesting that the processor works, I can continue writing code.
 I also spent some time designing! Before making anything I wanted to make a simple harness for the display, to see if I was capable of using the display module's holes for building the tabloid case around it and it seems that I am pretty capable at that.
 ![display harness](docs/images/journal/11-11-26_2.png)
 
-**Total time spent: 9 hour 35 minutes**
+I've also spent a good amount moving the code for the SCC from `bios.asm` into `lo_drvs/scc_lo_drv.s` and some more tidying up.
+
+**Total time spent: 10 hour 25 minutes**
