@@ -42,9 +42,8 @@ __ide_lba_1623      equ     $e0010b ; select CF LBA bits 16-23  (Cylinder High)
 __ide_LBA_2427      equ     $e0010d ; select CF LBA bits 24-27  (Card/Head)
 __ide_sts_cmd_reg   equ     $e0010f ; select CF Status (RD) or Command (WR) register
 
-;
 ;;   ATA commands
-;
+
 __ata_cmd_ers_sec   equ     $c0     ; erase sector command
 __ata_cmd_fmt_trk   equ     $50     ; format track command
 __ata_cmd_rd_sec    equ     $20     ; read sector(s) command
@@ -54,8 +53,16 @@ __ata_cmd_seek      equ     $70     ; seek command
 ;
 ;; SSD1963 Display Driver
 ;
-__dspy_ssd_cmd      equ     $e00201 ; send commands to display controller
-__dspy_ssd_data     equ     $e00203 ; send data to display controller
+
+    include "ssd1963_lo_drv.s"
+
+
+;
+;; XPT2046 Touch Driver
+;
+__dspy_xpt_cs       equ     $e00301
+
+
 
     org $000000
 
@@ -64,22 +71,54 @@ __dspy_ssd_data     equ     $e00203 ; send data to display controller
 
     org $001000
 Start:
+
+;
+;   what to do
+; - Init the SCC                [DONE]
+; - Init the built-in display
+; - Init ZImodem
+; - Init IDE/ATA device
+; - Load FORTH shell
+; - Load and attempt booting the first sector silently
+; - Boot example code
+; - Boot m68K_OS
+;
+;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;           INIT SCC           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
     jsr __scc_init_all
 
 
-    lea text_1,a0
+
+
+
+breakpoint
+    lea text_breakpoint,a0
     jsr __scc_strout_a
     stop #$dead
 
 
-text_1
+
+
+
+
+
+
+
+
+
+text_breakpoint
     dc.b CR,LF,'TUNG TUNG TUNG SAHUR!',CR,LF,$ff
 
 
 
 
 
-
+; functions and subroutines
+;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;          SCC         ;
 ;;;;;;;;;;;;;;;;;;;;;;;;
