@@ -503,6 +503,29 @@ __set_lcd_mode		;7 parameters
 	rts
 
 
+__set_hori_period	;8 parameters
+; ht10	- ht8	-- d0 high byte
+; ht7 	- ht0	-- d0 low byte
+; hps10 - hps8	-- d1 high byte
+; hps7	- hps0	-- d1 low byte
+; hpw6	- hps0	-- d2 low byte
+; lps10 - lps8	-- d3 high byte
+; lps7	- lps0  -- d3 low byte
+; lpspp1,lpspp0 -- d4 low byte
+;
+; ht10..8: total horizontal period high byte in pixel clock
+; ht7..0:  total horizontal period low byte in pixel clock
+;
+;
+;
+;
+;
+;
+
+
+
+
+
 __set_pixel_data_interface	;1 parameter
 ; a2 - a0	-- d0
 ;
@@ -523,5 +546,10 @@ __set_pixel_data_interface	;1 parameter
 
 
 
+
+
+;
+;; MACROS
+;
 
 
