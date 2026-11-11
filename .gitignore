@@ -1,1 +1,5 @@
+68k_hardware/testings/*
+68k_hardware/tabloid.*.FCBak
 bootloader/rom.bin
+other\ testing/beeping/*.bin
+
