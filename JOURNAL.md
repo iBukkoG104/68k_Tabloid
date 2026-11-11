@@ -55,7 +55,7 @@ I also spent some time tinkering around with my 68010 CPU and managed to get a s
 
 
 
-# 11/11/2026 - more hardware!
+## 11/11/2026 - more hardware!
 
 in the last days I've spent some time thinking about doing some prototyping of the system onto a breadboard. After being able to freerun the CPU on an isolated system I made a small testing tray with a few glue logic chips (mostly for the CPU clock divider) and a PAL logic IC which serves as a simple ROM/SRAM/DRAM decoder.
 
