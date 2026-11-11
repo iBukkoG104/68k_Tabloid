@@ -56,3 +56,15 @@ I also spent some time tinkering around with my 68010 CPU and managed to get a s
 ![MC68010 freerun](docs/images/journal/08-11-26_2.jpg)
 
 **Total time spent: 2 hour 50 minutes**
+
+
+# 11/11/2026 - more hardware!
+
+in the last days I've spent some time thinking about doing some prototyping of the system onto a breadboard. After being able to freerun the CPU on an isolated system I made a small testing tray with a few glue logic chips (mostly for the CPU clock divider) and a PAL logic IC which serves as a simple ROM/SRAM/DRAM decoder.
+
+After that I began thinking of a simple example I could implement in this test run. I used an arduino to control a piezo buzzer and played a note depending from its inputs. I used a TMS27C512 and a temporary AM27C256 (which is partly broken, but works great for my testing) and it was beautiful: due to RF interference from nearby connections, the buzzer started humming weaker or stronger depending on the distance of my hand from the cables. I have a video in the `docs/` folder
+
+Assesting that the processor works, I can continue writing code.
+![MC buzzer](docs/images/journal/11-11-26_2.jpg)
+
+**Total time spent: 8 hour 35 minutes**
