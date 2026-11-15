@@ -79,4 +79,6 @@ I made a 16kB SRAM module :D
 
 I discovered the existence of the PIC16 line of microcontrollers, and did some research on the PIC16F877A MCU. This MCU is perfect to be used as a System Managment Controller (SMC), managing soft-power, as Non-Volatile Memory to store f68kans and boot settings, as RTC and even as a rudimentary PSG. I will look deeper into this microcontroller and will definitely implement it into my system.
 
-**Total time spent: 2 hours 10 minutes**
+I also started working on the schematic of the tabloid.
+
+**Total time spent: 2 hours 45 minutes**
