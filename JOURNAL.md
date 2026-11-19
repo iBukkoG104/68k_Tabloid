@@ -96,3 +96,5 @@ Today I completed the first version of my scc low driver and the early documenta
 
 I tidyied `boot.asm` a bit, moving the stray IDE code into its independent driver file, `ide_if_lo_drv.s`.
 ![filestruct](docs/images/journal/19-11-26.png)
+
+**Total time spent: 1 hours 0 minutes**
