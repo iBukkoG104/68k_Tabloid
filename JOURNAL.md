@@ -89,3 +89,10 @@ The SCC low driver is almost done, I added a function that allows me to change t
 ![IDK](https://camo.githubusercontent.com/a6d235811bc6cbeb306955c16e11982e624308e79272722fca1ab8fdbed91537/687474703a2f2f696d67732e786b63642e636f6d2f636f6d6963732f706f696e746572732e706e67)
 
 **Total time spent: 1 hour 25 minutes**
+
+
+## 19/11/26 - more low-level drivers!
+Today I completed the first version of my scc low driver and the early documentation for it, but I still need to write the proper documentation in the `docs` directory.
+
+I tidyied `boot.asm` a bit, moving the stray IDE code into its independent driver file, `ide_if_lo_drv.s`.
+![filestruct](docs/images/journal/19-11-26.png)
