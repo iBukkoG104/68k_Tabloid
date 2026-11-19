@@ -1,5 +1,7 @@
 ;; scc_lo_drv.s
 ;;
+;;
+;; VERSION: 1.0
 ;; This file is a low-level driver to manage the Z8530
 ;; Serial Communication Controller, loaded with all the
 ;; functions and control labels.
