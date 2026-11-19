@@ -86,7 +86,7 @@ I also started working on the schematic of the tabloid.
 
 ## 16/11/26 - scc_lo_drv.s almost done
 The SCC low driver is almost done, I added a function that allows me to change the baudrate of one of its ports through code, which will be very convenient for the WiFi modem. Now all I need is to write the documentation for it and then we rock.
-![IDK](https://camo.githubusercontent.com/a6d235811bc6cbeb306955c16e11982e624308e79272722fca1ab8fdbed91537/687474703a2f2f696d67732e786b63642e636f6d2f636f6d6963732f706f696e746572732e706e67)
+![IDK](https://miro.medium.com/1*0OVYUZlK--mSOrNmwahRWw.png)
 
 **Total time spent: 1 hour 25 minutes**
 
