@@ -1,10 +1,10 @@
 ; bios.asm  -  Basic Input/Output System for the 68k-Tabloid.
 ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;                               ;
-;             purpose           ;
-;                               ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ;                               ;
+; ;             purpose           ;
+; ;                               ;
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; this program is the bios of the system, it takes care for the initial
 ; system initialisation and provide an interactive FORTH shell using the
@@ -14,65 +14,39 @@
 ; return to FORTH.
 ;
 ;
-;
+;   assembler directive to consider low drivers folder
     incdir "lo_drvs/"
 ;
 ;;  RESET VECTOR etc. etc.
 ;
 
     org $000000
-
     dc.l $00028000        ; init ssp to top of SRAM
     dc.l Start
 
-;; LOADING THE DEVICE DRIVERS
+
     org $001000
 ;
 ;; goodies
 ;
-
 CR          equ     13
 LF          equ     10
 
-
 ;
-;; Z8530 Serial Communication Controller
+;;
+;; driver loading
+;;
+;; scc_lo_drv.s:        Z8530 Serial Communication Controller low driver
+;; ide_if_lo_drv.s:     IDE/ATA interface low driver
+;; ssd1963_lo_drv.s:    SSD1963 Display controller low driver
+;; esp32wifi_lo_drv.s:  ESP32 Wifi interface low driver
+;; xpt2046_lo_drv.s:    XPT2046 RTP controller low driver
+;;
 ;
 
     include "scc_lo_drv.s"
-
-;
-;; IDE/ATA fixed drive
-;
-__ide_data_reg      equ     $e00101 ; select CF Data register
-__ide_err_fet_reg   equ     $e00103 ; select CF error (RD) or feature (WR) register
-__ide_sector_reg    equ     $e00105 ; select CF sector count register
-__ide_lba_07        equ     $e00107 ; select CF LBA bits 0-7    (Sector No.)
-__ide_lba_815       equ     $e00109 ; select CF LBA bits 8-15   (Cylinder Low)
-__ide_lba_1623      equ     $e0010b ; select CF LBA bits 16-23  (Cylinder High)
-__ide_LBA_2427      equ     $e0010d ; select CF LBA bits 24-27  (Card/Head)
-__ide_sts_cmd_reg   equ     $e0010f ; select CF Status (RD) or Command (WR) register
-
-;;   ATA commands
-
-__ata_cmd_ers_sec   equ     $c0     ; erase sector command
-__ata_cmd_fmt_trk   equ     $50     ; format track command
-__ata_cmd_rd_sec    equ     $20     ; read sector(s) command
-__ata_cmd_wr_sec    equ     $30     ; write sector(s) command
-__ata_cmd_seek      equ     $70     ; seek command
-
-;
-;; SSD1963 Display Driver
-;
-
+    ;include "ide_if_lo_drv.s"  ; driver not ready for inclusion
     include "ssd1963_lo_drv.s"
-
-
-;
-;; XPT2046 Touch Driver
-;
-__dspy_xpt_cs       equ     $e00301
-
 
 
 
@@ -80,22 +54,37 @@ Start:
 
 ;
 ;   what to do
-; - Init the SCC                [DONE]
+; - write device drivers                [ONGOING]
+;   - SCC driver                        [DONE]
+;   - SSD1963 display driver            [ONGOING]
+;   - IDE interface driver              [ONGOING]
+;   - ESP32 Wifi interface driver
+;   - XPT2046 driver
+;   - PIC MCU svr driver
+;
+; - "Init" the MCU
+;   - RTC clock bringup
+;   - tick clock setup
+;   - get the FORTH shell parameters from NVRAM
+;
+; - Init the SCC                        [DONE]
 ; - Init the built-in display
-; - Init ZImodem
-; - Init IDE/ATA device
 ; - Load FORTH shell
-; - Load and attempt booting the first sector silently
-; - Boot example code
+; - Init IDE/ATA device
+; - Init ESP32 Wifi interface
+;   - Raise the Wifi baudrate to 38400
 ; - Boot m68K_OS
 ;
 ;
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;           INIT SCC           ;;
+;;          INIT STUFF          ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-    jsr __scc_init_all          ; initialise all of the SCC
+; PIC stuff
+
+
+; SCC
+    jsr __scc_init_all          ; initialise the SCC
 
 
 
@@ -104,7 +93,7 @@ Start:
 breakpoint
     lea text_breakpoint,a0
     jsr __scc_strout_a
-    stop #$0000
+    bsr breakpoint
 
 
 
@@ -112,4 +101,3 @@ breakpoint
 
 text_breakpoint
     dc.b CR,LF,'TUNG TUNG TUNG SAHUR!',CR,LF,$ff
-
