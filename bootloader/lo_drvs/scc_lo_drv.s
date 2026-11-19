@@ -20,14 +20,26 @@
 ;;
 ;; SUBROUTINES
 ;;
-;;  _scc_init_a: init portA of the SCC, 8n1 19200 baud
+;;  _scc_init_a:    init portA of the SCC, 8n1 19200 baud
+;;  _scc_charout_a: print a character out of portA
+;;  _scc_charin_available_a: check if portA is awaiting a character to be read
+;;  _scc_charin_a:  read character from portA
+;;
 ;;  _scc_init_b: init portB of the SCC, 8n1 9600 baud
+;;  _scc_charout_b: print b character out of portB
+;;  _scc_charin_available_b: check if portB is awaiting a character to be read
+;;  _scc_charin_b:  read character from portB
 ;;
-;; MACROS
 ;;
 ;;
+;; MACROS & FUNCTIONS
 ;;
-
+;; __scc_init_all:  auto-initialise the SCC with default settings (19200/9600 *8E1)
+;; __scc_strout_a:  print a string to portA
+;; __scc_strout_b:  print a string to portB
+;; __scc_change_baud:   change baudrate of specified port
+;;
+;
 
 ;
 ;;  CONTROL LABELS
@@ -190,7 +202,7 @@ _scc_charin_b                ;;fetch incoming character on portB;
 
 
 ;
-;;  MACROS
+;;  MACROS & FUNCTIONS
 ;
 
 __scc_init_all          ;;initialise PortA(19200 baud) and PortB(38400 baud)
@@ -272,6 +284,3 @@ __scc_change_baud       ;;change baud rate of specified port
     dc.w 600,  $00be
     dc.w 300,  $017e
     dc.w $dead
-
-
-
